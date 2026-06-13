@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>editkaro.in — High-Retention Video Editing & Social Marketing Agency</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="We craft high-retention video stories for creators, brands, and startups. From cinematic short-form reels to documentaries and ads, we scale your social authority." />
+  <meta property="og:title" content="editkaro.in — High-Retention Video Editing & Social Marketing Agency" />
+  <meta property="og:description" content="We craft high-retention video stories for creators, brands, and startups. From cinematic short-form reels to documentaries and ads, we scale your social authority." />
+  <meta property="og:image" content="https://picsum.photos/seed/editkaro/1200/630" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <!-- Premium Fonts (Fontshare Cabinet Grotesk & Satoshi) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&f[]=satoshi@900,700,500,400,300&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Phosphor Icons (Ultra Light lines) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <!-- Ambient Design Textures -->
+  <div class="film-grain"></div>
+  <div class="bg-grid-lines"></div>
+  <div class="bg-glow-orbs">
+    <div class="glow-orb orb-indigo"></div>
+    <div class="glow-orb orb-rose"></div>
+  </div>
+  <canvas id="bg-particle-canvas"></canvas>
+
+  <!-- Smooth Preloader -->
+  <div class="preloader">
+    <div class="preloader-content">
+      <!-- Massive minimal word cycles -->
+      <div class="preloader-word-container">
+        <span class="preloader-active-word">rhythm</span>
+      </div>
+      <!-- Elegant monospace bracket counter -->
+      <div class="preloader-counter-wrap">
+        <span class="preloader-bracket">[</span>
+        <span class="counter-num">00</span>
+        <span class="preloader-percent">%</span>
+        <span class="preloader-bracket">]</span>
+      </div>
+    </div>
+    
+    <!-- Preloader Curved Transition Boundary -->
+    <div class="preloader-slider-svg">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 C30,100 70,100 100,0 L100,100 L0,100 Z" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Custom Cursor for Video Hover Reveals -->
+  <div class="custom-cursor">
+    <span class="cursor-label">PLAY</span>
+  </div>
+
+  <!-- Floating Capsule Navigation -->
+  <header class="header">
+    <nav class="nav-capsule">
+      <a href="#" class="brand-logo">
+        editkaro<span class="brand-dot">.</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="#work" class="nav-item">Work</a>
+        <a href="#grader" class="nav-item">Grader</a>
+        <a href="#workflow" class="nav-item">Workflow</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </div>
+
+      <div class="nav-cta-wrapper">
+        <a href="#contact" class="btn-magnetic btn-primary">
+          <span class="btn-text">Let's Edit</span>
+          <span class="btn-icon">
+            <i class="ph ph-arrow-up-right"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="nav-hamburger" aria-label="Toggle Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Screen Menu Overlay -->
+  <div class="mobile-menu-overlay">
+    <div class="mobile-menu-links">
+      <a href="#work" class="mobile-nav-item">Work</a>
+      <a href="#grader" class="mobile-nav-item">Grader</a>
+      <a href="#workflow" class="mobile-nav-item">Workflow</a>
+      <a href="#contact" class="mobile-nav-item">Contact</a>
+      <a href="#contact" class="btn-magnetic btn-primary mobile-cta">
+        <span class="btn-text">Start Project</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Wrap -->
+  <main class="main-content">
+
+    <!-- Hero Section (Attention) -->
+    <section class="section-hero">
+      <div class="hero-split-grid">
+        
+        <div class="hero-info">
+          <div class="hero-eyebrow">
+            <span>[ RETENTION-FOCUSED VIDEO AGENCY ]</span>
+          </div>
+          
+          <!-- Headline will be programmatically split by app.js for character stagger -->
+          <h1 class="hero-headline" id="hero-headline-text">
+            We shape video stories that dominate the feed.
+          </h1>
+
+          <p class="hero-subtext">
+            From cinematic YouTube documentaries to high-retention social shorts, we scale brand authority through custom video editing.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn-magnetic btn-primary btn-large">
+              <span class="btn-text">Start A Project</span>
+              <span class="btn-icon"><i class="ph ph-arrow-up-right"></i></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-media-wrap">
+          <!-- Double-Bezel Enclosure for Cinematic Landscape Video -->
+          <div class="double-bezel-outer hero-reel-outer">
+            <div class="double-bezel-inner hero-reel-inner">
+              <div class="video-container aspect-16-9">
+                <video autoplay muted loop playsinline class="hero-reel-video">
+                  <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                </video>
+                <div class="video-overlay-glow"></div>
+                <!-- Hero Cinematic HUD Overlay -->
+                <div class="hero-hud-overlay">
+                  <div class="hud-top-bar">
+                    <span class="hud-status"><span class="hud-dot-blink"></span> REC</span>
+                    <span class="hud-format">4K DCI | 23.976 fps</span>
+                  </div>
+                  <div class="hud-bottom-bar">
+                    <span class="hud-codec">ProRes 422 HQ</span>
+                    <span class="hud-timecode" id="hero-hud-timecode">00:00:00:00</span>
+                  </div>
+                  <div class="hud-audio-spectrum">
+                    <span class="hud-audio-bar"></span>
+                    <span class="hud-audio-bar"></span>
+                    <span class="hud-audio-bar"></span>
+                    <span class="hud-audio-bar"></span>
+                    <span class="hud-audio-bar"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Stats & Social Proof Section -->
+    <section class="section-stats">
+      <!-- Infinite Horizontally Scrolling Stats Marquee -->
+      <div class="stats-marquee-wrapper">
+        <div class="stats-marquee-content">
+          <span class="marquee-text">500M+ VIEWS GENERATED</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-text">100+ BRANDS SCALED</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-text">10K+ VIDEOS DELIVERED</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-text">AWWWARDS-TIER CUTS</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-text">500M+ VIEWS GENERATED</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-text">100+ BRANDS SCALED</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-text">10K+ VIDEOS DELIVERED</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-text">AWWWARDS-TIER CUTS</span>
+          <span class="marquee-dot"></span>
+        </div>
+      </div>
+
+      <div class="section-container">
+        <!-- Trusted Client Logo Wall -->
+        <div class="logo-wall-wrapper">
+          <p class="logo-wall-title">TRUSTED BY HIGH-GROWTH CREATORS & BRANDS</p>
+          <div class="logo-wall-grid">
+            <div class="logo-item"><img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube" /></div>
+            <div class="logo-item"><img src="https://cdn.simpleicons.org/twitch/ffffff" alt="Twitch" /></div>
+            <div class="logo-item"><img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok" /></div>
+            <div class="logo-item"><img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify" /></div>
+            <div class="logo-item"><img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section (Interest & Desire) -->
+    <section id="work" class="section-portfolio">
+      <div class="section-container">
+        
+        <div class="section-header-left">
+          <span class="header-index">01/CURATED ARCHIVE</span>
+          <h2 class="section-title">Selected Commissions</h2>
+          <p class="section-desc">A curated archive of high-retention edits categorized by platform format.</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="portfolio-filters-wrapper">
+          <div class="portfolio-filters">
+            <button class="filter-pill active btn-magnetic" data-filter="all">All Work</button>
+            <button class="filter-pill btn-magnetic" data-filter="short">Short-form</button>
+            <button class="filter-pill btn-magnetic" data-filter="long">Long-form</button>
+            <button class="filter-pill btn-magnetic" data-filter="gaming">Gaming</button>
+            <button class="filter-pill btn-magnetic" data-filter="football">Action Sports</button>
+            <button class="filter-pill btn-magnetic" data-filter="ecommerce">eCommerce Ads</button>
+            <button class="filter-pill btn-magnetic" data-filter="docu">Documentary</button>
+            <button class="filter-pill btn-magnetic" data-filter="anime">Anime</button>
+            <button class="filter-pill btn-magnetic" data-filter="ads">Ads</button>
+          </div>
+        </div>
+
+        <!-- Gapless Bento Grid -->
+        <div class="bento-grid grid-flow-dense" id="portfolio-grid">
+          
+          <!-- Bento Item 1: Short-form (Vertical video, double row) -->
+          <div class="bento-card col-span-4 row-span-2 short" data-video="https://vjs.zencdn.net/v/oceans.mp4" id="work-1">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-short/600/800" alt="Short Form Reel" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <!-- Play Indicator Badge -->
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <!-- Retention Analytics Sparkline Overlay -->
+                  <div class="retention-overlay">
+                    <div class="retention-badge"><i class="ph ph-trend-up"></i> 89% Retention</div>
+                    <svg viewBox="0 0 100 30" class="retention-sparkline">
+                      <path id="sparkline-path" d="M0,25 C15,8 20,4 35,4 C45,4 55,20 70,8 C80,0 85,2 100,2" fill="none" stroke="url(#retention-grad)" stroke-width="2"/>
+                      <circle class="sparkline-pulse-node" r="3" fill="hsl(var(--accent-rose))"></circle>
+                      <defs>
+                        <linearGradient id="retention-grad" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stop-color="hsl(var(--accent-rose))"/>
+                          <stop offset="100%" stop-color="hsl(var(--accent-indigo))"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Short-form</span>
+                  <h4 class="card-title">Retention Loop Hook</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 2: Long-form -->
+          <div class="bento-card col-span-8 row-span-1 long" data-video="https://www.w3schools.com/html/movie.mp4" id="work-2">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-long/800/450" alt="Long Form Documentary" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <!-- Subtitle Dialogue Typewriter Overlay -->
+                  <div class="dialogue-overlay">
+                    <div class="dialogue-box">
+                      <i class="ph ph-quotes"></i>
+                      <span class="dialogue-text" id="work-2-dialogue">"In the heart of the wild..."</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Long-form</span>
+                  <h4 class="card-title">Creator Documentary Series</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 3: Gaming (Mapped to Sintel Action CGI) -->
+          <div class="bento-card col-span-4 row-span-1 gaming" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4" id="work-3">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-gaming/600/400" alt="Esports Gaming Edit" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <!-- Audio Wave Equalizer Overlay -->
+                  <div class="equalizer-overlay">
+                    <div class="equalizer-bars">
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Gaming</span>
+                  <h4 class="card-title">Esports Montage Cut</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 4: Action Sports (Mapped to Oceans Cinematic Waves) -->
+          <div class="bento-card col-span-4 row-span-1 football" data-video="https://vjs.zencdn.net/v/oceans.mp4" id="work-4">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-football/600/400" alt="Cinematic Surf Reel" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <!-- Speed Ramp Curve Overlay -->
+                  <div class="speed-ramp-overlay">
+                    <span class="speed-ramp-badge"><i class="ph ph-gauge"></i> SPEED RAMP ACTIVE</span>
+                    <svg viewBox="0 0 100 30" class="speed-ramp-graph">
+                      <path d="M0,25 L30,25 C45,25 50,5 65,5 L100,5" fill="none" stroke="hsl(var(--accent-indigo))" stroke-width="2"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Action Sports</span>
+                  <h4 class="card-title">Cinematic Surf Reel</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 5: eCommerce Ads (Mapped to Flower Blooming Macro Commercial Look) -->
+          <div class="bento-card col-span-4 row-span-1 ecommerce" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" id="work-5">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-ecommerce/600/400" alt="DTC Brand Coffee Ad" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <!-- eCommerce Hotspot & Metric Overlay -->
+                  <div class="ecommerce-overlay">
+                    <div class="metric-badge"><i class="ph ph-shopping-cart-simple"></i> CTR +140%</div>
+                    <div class="hotspot-node" style="top: 40%; left: 35%;" data-tooltip="Cut 0.8s hook"></div>
+                    <div class="hotspot-node" style="top: 60%; left: 70%;" data-tooltip="Color grading: Warm"></div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">eCommerce Ads</span>
+                  <h4 class="card-title">DTC Product Spotlight</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 6: Documentary (Mapped to Bear Catching Fish Wilderness wildlife docu look) -->
+          <div class="bento-card col-span-8 row-span-1 docu" data-video="https://www.w3schools.com/html/movie.mp4" id="work-6">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-docu/800/450" alt="Vox Style Documentary" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Documentary Style</span>
+                  <h4 class="card-title">Deep Dive Storytelling</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 7: Anime (Mapped to Sintel CGI Action sequence) -->
+          <div class="bento-card col-span-8 row-span-1 anime" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4" id="work-7">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-anime/800/450" alt="Anime stylized AMV Edit" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Anime Videos</span>
+                  <h4 class="card-title">Neon AMV Sequence</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 8: Ads -->
+          <div class="bento-card col-span-4 row-span-1 ads" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" id="work-8">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-ads/600/400" alt="Brand Commercial" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Ads</span>
+                  <h4 class="card-title">Visual Commerce Spec</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Color Grading Studio -->
+    <section id="grader" class="section-grader">
+      <div class="section-container">
+        
+        <div class="grader-layout-split">
+          
+          <div class="grader-info-sticky">
+            <span class="header-index">02/STUDIO LAB</span>
+            <h2 class="section-title">Color Grading Studio</h2>
+            <p class="section-desc">Interactive comparison: Drag the slider handle to translate flat LOG camera profiles into rich, cinematic graded frames.</p>
+            
+            <!-- Interactive Studio LUT Selector -->
+            <div class="lut-presets-wrapper">
+              <span class="lut-title">[ SELECT CREATIVE LUT ]</span>
+              <div class="lut-presets-grid">
+                <button class="lut-btn active btn-magnetic" data-lut="cinema">Cinema Grade</button>
+                <button class="lut-btn btn-magnetic" data-lut="cyberpunk">Cyber Neon</button>
+                <button class="lut-btn btn-magnetic" data-lut="classic">Warm Indie</button>
+                <button class="lut-btn btn-magnetic" data-lut="noir">Mono Noir</button>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="grader-slider-wrap">
+            <!-- Slider Double-Bezel Enclosure -->
+            <div class="double-bezel-outer slider-outer">
+              <div class="double-bezel-inner slider-inner">
+                <div class="slider-comparison-container" id="grading-slider">
+                  
+                  <!-- Graded (Background) -->
+                  <div class="slider-image-graded">
+                    <img src="https://picsum.photos/seed/colorgradedcinema/1920/1080" alt="Graded Footage Preview" />
+                    <span class="slider-label label-graded">CINEMATIC GRADE</span>
+                  </div>
+
+                  <!-- Raw Log (Foreground/Cropped) -->
+                  <div class="slider-image-raw">
+                    <img src="https://picsum.photos/seed/colorgradedcinema/1920/1080" alt="Raw Log Footage Preview" />
+                    <span class="slider-label label-raw">RAW LOG FOOTAGE</span>
+                  </div>
+
+                  <!-- Drag Handle Line -->
+                  <div class="slider-drag-handle">
+                    <div class="handle-button">
+                      <i class="ph ph-caret-left-right"></i>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section id="workflow" class="section-workflow">
+      <div class="section-container">
+        
+        <div class="section-header-left">
+          <span class="header-index">03/THE PIPELINE</span>
+          <h2 class="section-title">Retention Engineering</h2>
+          <p class="section-desc">Our 4-step pipeline that transforms raw folders of footage into viral visual assets.</p>
+        </div>
+
+        <div class="workflow-accordion">
+          
+          <!-- Step 1 -->
+          <div class="workflow-step active" id="step-1">
+            <div class="step-header">
+              <span class="step-num">01</span>
+              <h3 class="step-title">The Retentive Hook</h3>
+              <i class="ph ph-plus step-toggle-icon"></i>
+            </div>
+            <div class="step-body">
+              <p class="step-text">
+                The first 3 seconds dictate video survival. We design bespoke visual hooks, dynamic typography, and pattern interrupts that grab the user before they can scroll away.
+              </p>
+              <div class="timeline-visualizer">
+                <div class="timeline-tracks">
+                  <div class="timeline-track video-track">
+                    <span class="track-label">V2 GFX</span>
+                    <div class="track-block block-graphics" style="width: 25%; left: 0%;">Hook Title</div>
+                    <div class="track-block block-graphics" style="width: 15%; left: 35%;">Callout</div>
+                    <div class="track-block block-graphics" style="width: 20%; left: 75%;">Subscribe</div>
+                  </div>
+                  <div class="timeline-track video-track">
+                    <span class="track-label">V1 CUT</span>
+                    <div class="track-block block-footage" style="width: 30%; left: 0%;">A-Roll Cut</div>
+                    <div class="track-block block-footage" style="width: 25%; left: 32%;">B-Roll Zoom</div>
+                    <div class="track-block block-footage" style="width: 38%; left: 60%;">Action Reel</div>
+                  </div>
+                  <div class="timeline-track audio-track">
+                    <span class="track-label">A1 SFX</span>
+                    <div class="track-block block-audio" style="width: 45%; left: 0%;">Voiceover</div>
+                    <div class="track-block block-audio" style="width: 50%; left: 48%;">Swell Music</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="workflow-step" id="step-2">
+            <div class="step-header">
+              <span class="step-num">02</span>
+              <h3 class="step-title">Narrative Pacing</h3>
+              <i class="ph ph-plus step-toggle-icon"></i>
+            </div>
+            <div class="step-body">
+              <p class="step-text">
+                We structure footage for maximum pacing. Using custom transitions, sound indicators, and timed zooms, we maintain narrative momentum that prevents drop-offs.
+              </p>
+              <div class="timeline-visualizer">
+                <div class="timeline-tracks">
+                  <div class="timeline-track video-track">
+                    <span class="track-label">V2 GFX</span>
+                    <div class="track-block block-graphics" style="width: 30%; left: 15%;">Subtitle Ticker</div>
+                    <div class="track-block block-graphics" style="width: 25%; left: 60%;">Zoom Icon</div>
+                  </div>
+                  <div class="timeline-track video-track">
+                    <span class="track-label">V1 CUT</span>
+                    <div class="track-block block-footage" style="width: 18%; left: 0%;">Clip A</div>
+                    <div class="track-block block-footage" style="width: 22%; left: 20%;">Jump Cut B</div>
+                    <div class="track-block block-footage" style="width: 30%; left: 45%;">Clip C</div>
+                    <div class="track-block block-footage" style="width: 20%; left: 78%;">Clip D</div>
+                  </div>
+                  <div class="timeline-track audio-track">
+                    <span class="track-label">A1 SFX</span>
+                    <div class="track-block block-audio" style="width: 40%; left: 0%;">VO Track</div>
+                    <div class="track-block block-audio" style="width: 10%; left: 42%;">Whoosh</div>
+                    <div class="track-block block-audio" style="width: 42%; left: 55%;">Beat Drop</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="workflow-step" id="step-3">
+            <div class="step-header">
+              <span class="step-num">03</span>
+              <h3 class="step-title">Cinematic Grading</h3>
+              <i class="ph ph-plus step-toggle-icon"></i>
+            </div>
+            <div class="step-body">
+              <p class="step-text">
+                We craft colors that set the mood. Moving raw flat footage through custom LUT color pipelines to achieve the iconic "teal and orange" contrast and Hollywood skin tones.
+              </p>
+              <div class="timeline-visualizer">
+                <div class="timeline-tracks">
+                  <div class="timeline-track video-track">
+                    <span class="track-label">GRADES</span>
+                    <div class="track-block block-grade" style="width: 40%; left: 0%;">Teal/Orange LUT</div>
+                    <div class="track-block block-grade" style="width: 50%; left: 45%;">Skin Tone Keyer</div>
+                  </div>
+                  <div class="timeline-track video-track">
+                    <span class="track-label">EFFECTS</span>
+                    <div class="track-block block-fx" style="width: 90%; left: 5%;">Halftone Grain</div>
+                  </div>
+                  <div class="timeline-track audio-track">
+                    <span class="track-label">AUDIO</span>
+                    <div class="track-block block-audio" style="width: 95%; left: 0%;">Soundbed Master</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="workflow-step" id="step-4">
+            <div class="step-header">
+              <span class="step-num">04</span>
+              <h3 class="step-title">Spatial Audio Design</h3>
+              <i class="ph ph-plus step-toggle-icon"></i>
+            </div>
+            <div class="step-body">
+              <p class="step-text">
+                Sound is 50% of the video experience. We engineer spatial sound effects (SFX), foley details, and swelling score integration to create a tactile sound world.
+              </p>
+              <div class="timeline-visualizer">
+                <div class="timeline-tracks">
+                  <div class="timeline-track video-track">
+                    <span class="track-label">VIDEO</span>
+                    <div class="track-block block-footage" style="width: 95%; left: 0%;">Final Locked Cut</div>
+                  </div>
+                  <div class="timeline-track audio-track">
+                    <span class="track-label">A2 FOLEY</span>
+                    <div class="track-block block-foley" style="width: 15%; left: 10%;">Footstep SFX</div>
+                    <div class="track-block block-foley" style="width: 20%; left: 45%;">Wind Swell</div>
+                    <div class="track-block block-foley" style="width: 15%; left: 75%;">Impact Hit</div>
+                  </div>
+                  <div class="timeline-track audio-track">
+                    <span class="track-label">A1 AUDIO</span>
+                    <div class="track-block block-audio" style="width: 40%; left: 0%;">Sub-bass rumble</div>
+                    <div class="track-block block-audio" style="width: 50%; left: 45%;">Dialogue Leveler</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonials (Expanded slider deck with manual controls) -->
+    <section class="section-testimonials">
+      <div class="section-container">
+        
+        <div class="section-header-left">
+          <span class="header-index">04/PARTNER OPINIONS</span>
+          <h2 class="section-title">Client Voices</h2>
+          <p class="section-desc">What creators and marketing leads say after seeing their retention charts climb.</p>
+        </div>
+
+        <div class="testimonials-slider-wrapper">
+          <div class="testimonial-slider-track">
+            
+            <!-- Slide 1 -->
+            <div class="testimonial-quote-box active" data-slide="0">
+              <p class="testimonial-quote">
+                "Editkaro took our raw talk-show episodes and engineered them into highly viral shorts. Our audience retention climbed from 35% to 68% in less than a month."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar"><img src="https://picsum.photos/seed/author1/100/100" alt="Alex Rivera" /></div>
+                <div class="author-details">
+                  <span class="author-name">Alex Rivera</span>
+                  <span class="author-title">Host, The Next Gen Podcast</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-quote-box" data-slide="1">
+              <p class="testimonial-quote">
+                "The editing speed and attention to color hook details were unmatched. Our product launch video hit 2.4M views in just 5 days on TikTok."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar"><img src="https://picsum.photos/seed/author2/100/100" alt="Sarah Jenkins" /></div>
+                <div class="author-details">
+                  <span class="author-name">Sarah Jenkins</span>
+                  <span class="author-title">Brand Director, Aero Lifestyle</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-quote-box" data-slide="2">
+              <p class="testimonial-quote">
+                "Editkaro understands gaming rhythm. The montages they cut for us have insane visual pacing and audio foley details that keeps chat hyped."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar"><img src="https://picsum.photos/seed/author3/100/100" alt="Kyler Vance" /></div>
+                <div class="author-details">
+                  <span class="author-name">Kyler Vance</span>
+                  <span class="author-title">Esports Creator & Streamer</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="testimonial-quote-box" data-slide="3">
+              <p class="testimonial-quote">
+                "We needed ads that didn't feel like ads. Editkaro cut product sequences that boosted our hook rate by 140% and halved customer acquisition costs."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar"><img src="https://picsum.photos/seed/author4/100/100" alt="Marcus Chen" /></div>
+                <div class="author-details">
+                  <span class="author-name">Marcus Chen</span>
+                  <span class="author-title">Founder, Aura Tech</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5 -->
+            <div class="testimonial-quote-box" data-slide="4">
+              <p class="testimonial-quote">
+                "Finding editors who understand pacing is rare. The team at Editkaro delivers clean, color-graded, sound-designed assets that consistently hit the Explore page."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar"><img src="https://picsum.photos/seed/author5/100/100" alt="Liam Henderson" /></div>
+                <div class="author-details">
+                  <span class="author-name">Liam Henderson</span>
+                  <span class="author-title">Social Lead, Kickstart Media</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="testimonial-slider-controls">
+            <button class="slide-nav-btn btn-magnetic prev-btn" aria-label="Previous Slide">
+              <i class="ph ph-arrow-left"></i>
+            </button>
+            
+            <div class="slide-dots">
+              <span class="slide-dot active" data-slide-to="0"></span>
+              <span class="slide-dot" data-slide-to="1"></span>
+              <span class="slide-dot" data-slide-to="2"></span>
+              <span class="slide-dot" data-slide-to="3"></span>
+              <span class="slide-dot" data-slide-to="4"></span>
+            </div>
+
+            <button class="slide-nav-btn btn-magnetic next-btn" aria-label="Next Slide">
+              <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact & Footer (Action) -->
+    <section id="contact" class="section-contact">
+      <div class="section-container">
+        
+        <div class="contact-grid">
+          
+          <div class="contact-branding">
+            <h2 class="contact-headline">Ready to dominate the feed?</h2>
+            <p class="contact-sub">Fill out the intake form to connect with our creative lead. We reply in 24 hours.</p>
+            
+            <div class="contact-details-list">
+              <div class="contact-detail-item">
+                <span class="detail-label">OFFICE</span>
+                <span class="detail-val">Mumbai, India</span>
+              </div>
+              <div class="contact-detail-item">
+                <span class="detail-label">EMAIL</span>
+                <span class="detail-val">hello@editkaro.in</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Intake Form -->
+          <div class="contact-form-wrapper double-bezel-outer">
+            <div class="contact-form-inner double-bezel-inner">
+              <form class="intake-form" id="project-intake">
+                
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label for="first-name">FIRST NAME</label>
+                    <input type="text" id="first-name" placeholder="John" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">LAST NAME</label>
+                    <input type="text" id="last-name" placeholder="Doe" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">EMAIL ADDRESS</label>
+                  <input type="email" id="email" placeholder="john@example.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="category">PRIMARY VIDEO CATEGORY</label>
+                  <select id="category" required>
+                    <option value="">Select a category</option>
+                    <option value="short">Short-form Reels / Shorts</option>
+                    <option value="long">Long-form YouTube content</option>
+                    <option value="gaming">Gaming videos</option>
+                    <option value="ads">Product Ads / eCommerce</option>
+                    <option value="other">Other visual asset</option>
+                  </select>
+                </div>
+
+                <!-- Interactive Scope Calculator -->
+                <div class="form-group">
+                  <label>ESTIMATED VOLUME (VIDEOS PER MONTH)</label>
+                  <div class="slider-val-container">
+                    <input type="range" id="videos-volume" min="2" max="30" value="8" class="form-slider" />
+                    <span class="slider-display-val" id="videos-volume-val">8 Videos</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>CHOOSE EDITING STYLE TONE</label>
+                  <div class="tone-cards-grid">
+                    <div class="tone-card active" data-tone="retention" data-multiplier="1">
+                      <div class="tone-card-glow"></div>
+                      <i class="ph ph-lightning"></i>
+                      <span>High Retention</span>
+                    </div>
+                    <div class="tone-card" data-tone="documentary" data-multiplier="1.3">
+                      <div class="tone-card-glow"></div>
+                      <i class="ph ph-film-strip"></i>
+                      <span>Documentary</span>
+                    </div>
+                    <div class="tone-card" data-tone="commercial" data-multiplier="1.6">
+                      <div class="tone-card-glow"></div>
+                      <i class="ph ph-sparkles"></i>
+                      <span>Commercial Ad</span>
+                    </div>
+                  </div>
+                  <input type="hidden" id="selected-tone" value="retention" />
+                </div>
+
+                <!-- Dynamic Estimated Quote Badge -->
+                <div class="form-quote-estimator">
+                  <span class="estimator-lbl">ESTIMATED VAL / MONTH</span>
+                  <span class="estimator-price" id="estimator-price-val">$1,800</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="details">TELL US ABOUT YOUR PROJECT</label>
+                  <textarea id="details" placeholder="Describe your editing needs, style reference, or folder volume..." rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-magnetic btn-primary btn-submit">
+                  <span class="btn-text">Submit Inquiry</span>
+                  <span class="btn-icon"><i class="ph ph-paper-plane-tilt"></i></span>
+                </button>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Fullscreen Video Lightbox Overlay -->
+  <div class="video-lightbox" aria-hidden="true" role="dialog">
+    <button class="lightbox-close" aria-label="Close Lightbox">
+      <i class="ph ph-x"></i>
+    </button>
+    <div class="lightbox-content">
+      <div class="double-bezel-outer lightbox-video-outer">
+        <div class="double-bezel-inner lightbox-video-inner">
+          <video class="lightbox-player" controls autoplay playsinline></video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Climax Visual Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      
+      <!-- Massive Visual Tagline -->
+      <div class="footer-climax-statement">
+        <h2 class="climax-tagline">Let's make something people can't scroll past.</h2>
+        <!-- Centered logo repeated at full size underneath -->
+        <div class="footer-logo-under">
+          editkaro<span class="brand-dot">.</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 editkaro.in. All rights reserved.</span>
+        
+        <div class="footer-socials">
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">LinkedIn</a>
+          <a href="#" class="social-link">YouTube</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Lenis for Smooth momentum scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  
+  <!-- Client JS Code -->
+  <script src="app.js"></script>
+
+</body>
+</html>
