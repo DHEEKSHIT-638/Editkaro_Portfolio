@@ -2487,4 +2487,39 @@ section {
   }
 }
 
+/* Video Stream Loading Overlay */
+.video-loading-indicator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background-color: rgba(9, 13, 22, 0.45);
+  z-index: 8;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.video-loader-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-left-color: hsl(var(--accent-indigo));
+  border-radius: 50%;
+  animation: video-loader-spin 0.8s linear infinite;
+}
+@keyframes video-loader-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.video-loader-text {
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: hsl(var(--accent-rose));
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 

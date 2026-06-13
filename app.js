@@ -784,4 +784,26 @@ document.addEventListener('DOMContentLoaded', () => {
     calculateQuote();
   }
 
+  // --- UI/UX Pro Max: Video Stream Load Indicator Handler ---
+  const heroVideo = document.querySelector('.hero-reel-video');
+  const videoLoader = document.querySelector('.video-loading-indicator');
+  if (heroVideo && videoLoader) {
+    if (!heroVideo.paused) {
+      videoLoader.style.opacity = '0';
+      videoLoader.style.pointerEvents = 'none';
+      videoLoader.style.display = 'none';
+    }
+    
+    heroVideo.addEventListener('playing', () => {
+      gsap.to(videoLoader, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        onComplete: () => {
+          videoLoader.style.display = 'none';
+        }
+      });
+    });
+  }
+
 });
