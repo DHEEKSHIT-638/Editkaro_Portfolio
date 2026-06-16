@@ -142,6 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Hero Entrance Animations (Character-Level stagger reveal)
   function triggerHeroEntrance(isFast = false) {
+    // Only execute if hero elements exist (prevents GSAP warnings on sub-pages)
+    if (!document.getElementById('hero-headline-text')) return;
+
     const durationMultiplier = isFast ? 0.3 : 1.0;
     const staggerTime = isFast ? 0.003 : 0.015;
     
