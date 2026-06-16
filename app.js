@@ -295,55 +295,59 @@ document.addEventListener('DOMContentLoaded', () => {
   const rawOverlay = document.querySelector('.slider-image-raw');
   const dragHandle = document.querySelector('.slider-drag-handle');
 
-  function moveSlider(clientX) {
-    const sliderRect = gradingSlider.getBoundingClientRect();
-    let xOffset = clientX - sliderRect.left;
-    
-    if (xOffset < 0) xOffset = 0;
-    if (xOffset > sliderRect.width) xOffset = sliderRect.width;
-    
-    const sliderPercentage = (xOffset / sliderRect.width) * 100;
-    
-    rawOverlay.style.width = `${sliderPercentage}%`;
-    dragHandle.style.left = `${sliderPercentage}%`;
-  }
-
-  // Controlled only by mouse movement / hover and touch
-  gradingSlider.addEventListener('mousemove', (e) => {
-    moveSlider(e.clientX);
-  });
-
-  gradingSlider.addEventListener('touchmove', (e) => {
-    if (e.touches && e.touches[0]) {
-      moveSlider(e.touches[0].clientX);
+  if (gradingSlider && rawOverlay && dragHandle) {
+    function moveSlider(clientX) {
+      const sliderRect = gradingSlider.getBoundingClientRect();
+      let xOffset = clientX - sliderRect.left;
+      
+      if (xOffset < 0) xOffset = 0;
+      if (xOffset > sliderRect.width) xOffset = sliderRect.width;
+      
+      const sliderPercentage = (xOffset / sliderRect.width) * 100;
+      
+      rawOverlay.style.width = `${sliderPercentage}%`;
+      dragHandle.style.left = `${sliderPercentage}%`;
     }
-  });
+
+    // Controlled only by mouse movement / hover and touch
+    gradingSlider.addEventListener('mousemove', (e) => {
+      moveSlider(e.clientX);
+    });
+
+    gradingSlider.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) {
+        moveSlider(e.touches[0].clientX);
+      }
+    });
+  }
 
   // 9. Fullscreen Video Lightbox Controller
   const videoLightbox = document.querySelector('.video-lightbox');
   const lightboxPlayer = document.querySelector('.lightbox-player');
   const lightboxClose = document.querySelector('.lightbox-close');
 
-  bentoCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const targetVideo = card.getAttribute('data-video');
-      if (targetVideo) {
-        lightboxPlayer.src = targetVideo;
-        videoLightbox.classList.add('active');
-        videoLightbox.setAttribute('aria-hidden', 'false');
-        lenis.stop();
-        lightboxPlayer.play();
-      }
+  if (videoLightbox && lightboxPlayer && lightboxClose) {
+    bentoCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const targetVideo = card.getAttribute('data-video');
+        if (targetVideo) {
+          lightboxPlayer.src = targetVideo;
+          videoLightbox.classList.add('active');
+          videoLightbox.setAttribute('aria-hidden', 'false');
+          lenis.stop();
+          lightboxPlayer.play();
+        }
+      });
     });
-  });
 
-  lightboxClose.addEventListener('click', () => {
-    videoLightbox.classList.remove('active');
-    videoLightbox.setAttribute('aria-hidden', 'true');
-    lightboxPlayer.pause();
-    lightboxPlayer.src = '';
-    lenis.start();
-  });
+    lightboxClose.addEventListener('click', () => {
+      videoLightbox.classList.remove('active');
+      videoLightbox.setAttribute('aria-hidden', 'true');
+      lightboxPlayer.pause();
+      lightboxPlayer.src = '';
+      lenis.start();
+    });
+  }
 
   // 10. Workflow Steps Accordion Toggle
   const steps = document.querySelectorAll('.workflow-step');
@@ -365,56 +369,58 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
   
-  let currentSlide = 0;
-  let slideTimer;
+  if (slides.length > 0 && dots.length > 0 && prevBtn && nextBtn) {
+    let currentSlide = 0;
+    let slideTimer;
 
-  function showSlide(index) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-    currentSlide = index;
-  }
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentSlide = index;
+    }
 
-  function nextSlide() {
-    const nextIdx = (currentSlide + 1) % slides.length;
-    showSlide(nextIdx);
-  }
+    function nextSlide() {
+      const nextIdx = (currentSlide + 1) % slides.length;
+      showSlide(nextIdx);
+    }
 
-  function prevSlide() {
-    const prevIdx = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(prevIdx);
-  }
+    function prevSlide() {
+      const prevIdx = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(prevIdx);
+    }
 
-  nextBtn.addEventListener('click', () => {
-    nextSlide();
-    resetSlideInterval();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    prevSlide();
-    resetSlideInterval();
-  });
-
-  dots.forEach((dot, dotIdx) => {
-    dot.addEventListener('click', () => {
-      showSlide(dotIdx);
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
       resetSlideInterval();
     });
-  });
 
-  function startSlideInterval() {
-    slideTimer = setInterval(nextSlide, 7000); // auto-rotate quotes every 7s
-  }
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetSlideInterval();
+    });
 
-  function resetSlideInterval() {
-    clearInterval(slideTimer);
+    dots.forEach((dot, dotIdx) => {
+      dot.addEventListener('click', () => {
+        showSlide(dotIdx);
+        resetSlideInterval();
+      });
+    });
+
+    function startSlideInterval() {
+      slideTimer = setInterval(nextSlide, 7000); // auto-rotate quotes every 7s
+    }
+
+    function resetSlideInterval() {
+      clearInterval(slideTimer);
+      startSlideInterval();
+    }
+
+    // Start testimonials timeline
     startSlideInterval();
   }
-
-  // Start testimonials timeline
-  startSlideInterval();
 
   // 12. Infinite stats marquee hover pause
   const statsMarquee = document.querySelector('.stats-marquee-content');
@@ -431,50 +437,56 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.nav-hamburger');
   const menuOverlay = document.querySelector('.mobile-menu-overlay');
 
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    menuOverlay.classList.toggle('active');
-    
-    if (menuOverlay.classList.contains('active')) {
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
-  });
-
-  document.querySelectorAll('.mobile-nav-item, .mobile-cta').forEach(item => {
-    item.addEventListener('click', () => {
-      menuBtn.classList.remove('active');
-      menuOverlay.classList.remove('active');
-      lenis.start();
+  if (menuBtn && menuOverlay) {
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+      
+      if (menuOverlay.classList.contains('active')) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
     });
-  });
+
+    document.querySelectorAll('.mobile-nav-item, .mobile-cta').forEach(item => {
+      item.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        lenis.start();
+      });
+    });
+  }
 
   // 14. ScrollTrigger reveals for sections
-  gsap.from(".bento-card", {
-    scrollTrigger: {
-      trigger: "#portfolio-grid",
-      start: "top 80%",
-    },
-    opacity: 0,
-    scale: 0.9,
-    y: 50,
-    duration: 1,
-    stagger: 0.1,
-    ease: "power3.out"
-  });
+  if (document.getElementById('portfolio-grid')) {
+    gsap.from(".bento-card", {
+      scrollTrigger: {
+        trigger: "#portfolio-grid",
+        start: "top 80%",
+      },
+      opacity: 0,
+      scale: 0.9,
+      y: 50,
+      duration: 1,
+      stagger: 0.1,
+      ease: "power3.out"
+    });
+  }
 
-  gsap.from(".workflow-step", {
-    scrollTrigger: {
-      trigger: ".workflow-accordion",
-      start: "top 80%",
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.12,
-    ease: "power3.out"
-  });
+  if (document.querySelector('.workflow-accordion')) {
+    gsap.from(".workflow-step", {
+      scrollTrigger: {
+        trigger: ".workflow-accordion",
+        start: "top 80%",
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.12,
+      ease: "power3.out"
+    });
+  }
 
   // 15. UI/UX Pro Max: 3D Bento Card Tilt Micro-physics
   bentoCards.forEach(card => {
@@ -827,7 +839,7 @@ document.addEventListener('DOMContentLoaded', () => {
     GOOGLE_SHEETS_URL: 'https://script.google.com/macros/s/AKfycby1c2xnNtDKVXI4CGnW2qXw4vRIvPRqq9C7w4mjkXa23b_-cSeDHs05h7cOJ9WXsWH_bg/exec' // Paste your deployed Google Apps Script URL here
   };
 
-  // Helper function to send post request
+  // Helper function to send post request (Non-blocking background runner)
   async function submitFormData(payload) {
     if (FORM_CONFIG.GOOGLE_SHEETS_URL) {
       try {
@@ -848,13 +860,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('Google Sheet Sync failed, falling back to Local Storage:', err);
       }
     }
-    return false; // indicates fallback was used
+    return false;
   }
 
   // 1. Email Collector Newsletter form
   const newsletterForm = document.getElementById('newsletter-subscription-form');
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', async (e) => {
+    newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
       const emailInput = document.getElementById('newsletter-email');
@@ -875,21 +887,21 @@ document.addEventListener('DOMContentLoaded', () => {
         email: emailValue
       };
       
-      // Attempt Google Sheet submission
-      const isSynced = await submitFormData(payload);
-      
-      // Store in LocalStorage as fallback/demo cache
-      let cachedEmails = JSON.parse(localStorage.getItem('editkaro_newsletter_emails')) || [];
-      cachedEmails.push({
-        email: emailValue,
-        timestamp: new Date().toISOString(),
-        synced: isSynced
+      // Perform background sync to Google Sheets (non-blocking)
+      submitFormData(payload).then(isSynced => {
+        // Store in LocalStorage as fallback/demo cache with sync status
+        let cachedEmails = JSON.parse(localStorage.getItem('editkaro_newsletter_emails')) || [];
+        cachedEmails.push({
+          email: emailValue,
+          timestamp: new Date().toISOString(),
+          synced: isSynced
+        });
+        localStorage.setItem('editkaro_newsletter_emails', JSON.stringify(cachedEmails));
       });
-      localStorage.setItem('editkaro_newsletter_emails', JSON.stringify(cachedEmails));
       
-      // Success micro-interaction animation
+      // Success micro-interaction animation runs INSTANTLY (Optimistic UI)
       gsap.to(submitBtn, {
-        backgroundColor: 'hsl(var(--accent-indigo))',
+        backgroundColor: 'rgba(244, 63, 94, 0.9)', // flash rose color on success
         duration: 0.4,
         onComplete: () => {
           if (btnText) btnText.textContent = 'Subscribed!';
@@ -915,7 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeToastBtn = document.getElementById('close-toast-btn');
   
   if (intakeForm && toastModal) {
-    intakeForm.addEventListener('submit', async (e) => {
+    intakeForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
       const firstName = document.getElementById('first-name').value.trim();
@@ -949,19 +961,19 @@ document.addEventListener('DOMContentLoaded', () => {
         estimatedPrice: priceVal
       };
       
-      // Attempt Google Sheet submission
-      const isSynced = await submitFormData(payload);
-      
-      // Store in LocalStorage as fallback/demo cache
-      let cachedInquiries = JSON.parse(localStorage.getItem('editkaro_project_inquiries')) || [];
-      cachedInquiries.push({
-        ...payload,
-        timestamp: new Date().toISOString(),
-        synced: isSynced
+      // Perform background sync to Google Sheets (non-blocking)
+      submitFormData(payload).then(isSynced => {
+        // Store in LocalStorage as fallback/demo cache with sync status
+        let cachedInquiries = JSON.parse(localStorage.getItem('editkaro_project_inquiries')) || [];
+        cachedInquiries.push({
+          ...payload,
+          timestamp: new Date().toISOString(),
+          synced: isSynced
+        });
+        localStorage.setItem('editkaro_project_inquiries', JSON.stringify(cachedInquiries));
       });
-      localStorage.setItem('editkaro_project_inquiries', JSON.stringify(cachedInquiries));
       
-      // Populate and trigger success toast preview
+      // Populate and trigger success toast preview INSTANTLY (Optimistic UI)
       document.getElementById('toast-name').textContent = `${firstName} ${lastName}`;
       document.getElementById('toast-email').textContent = email;
       document.getElementById('toast-phone').textContent = phone;
