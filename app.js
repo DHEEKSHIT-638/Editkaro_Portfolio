@@ -64,91 +64,105 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloaderWordEl = document.querySelector('.preloader-active-word');
   let lastWordIdx = -1;
   
-  const preloaderTween = gsap.to(counterVal, {
-    value: 100,
-    duration: 3.2,
-    ease: "power2.out",
-    onUpdate: () => {
-      const currentVal = Math.round(counterVal.value);
-      counterNumEl.innerText = currentVal < 10 ? `0${currentVal}` : currentVal;
-      
-      const wordIdx = Math.min(Math.floor((currentVal / 100) * preloaderWords.length), preloaderWords.length - 1);
-      
-      if (wordIdx !== lastWordIdx) {
-        lastWordIdx = wordIdx;
-        const nextWord = preloaderWords[wordIdx];
-        
-        // Dynamic Slide & Fade shift animation for words
-        gsap.timeline()
-          .to(preloaderWordEl, {
-            y: -20,
-            opacity: 0,
-            duration: 0.18,
-            ease: "power2.in",
-            onComplete: () => {
-              preloaderWordEl.innerText = nextWord;
-              
-              // Apply branding custom styles (italic/gradient) to the final word 'editkaro.'
-              if (nextWord === 'editkaro.') {
-                preloaderWordEl.classList.add('font-italic');
-              } else {
-                preloaderWordEl.classList.remove('font-italic');
-              }
-              
-              gsap.set(preloaderWordEl, { y: 20 });
-            }
-          })
-          .to(preloaderWordEl, {
-            y: 0,
-            opacity: 1,
-            duration: 0.3,
-            ease: "power2.out"
-          });
-      }
-    },
-    onComplete: () => {
-      const curvePath = document.querySelector('.preloader-slider-svg path');
-      
-      gsap.timeline()
-        .to(curvePath, {
-          attr: { d: "M0,0 C30,0 70,0 100,0 L100,100 L0,100 Z" },
-          duration: 0.6,
-          ease: "power2.inOut"
-        })
-        .to(".preloader", {
-          y: "-100%",
-          duration: 0.8,
-          ease: "power4.inOut",
-          onComplete: () => {
-            document.querySelector('.preloader').style.display = 'none';
-            triggerHeroEntrance();
-          }
-        }, "-=0.2");
+  // Session storage check to prevent preloader showing on every page navigation
+  const sessionVisited = sessionStorage.getItem('editkaro_preloader_played');
+  
+  if (sessionVisited) {
+    const preloaderEl = document.querySelector('.preloader');
+    if (preloaderEl) {
+      preloaderEl.style.display = 'none';
     }
-  });
+    triggerHeroEntrance(true); // Fast load mode
+  } else {
+    const preloaderTween = gsap.to(counterVal, {
+      value: 100,
+      duration: 3.2,
+      ease: "power2.out",
+      onUpdate: () => {
+        const currentVal = Math.round(counterVal.value);
+        if (counterNumEl) counterNumEl.innerText = currentVal < 10 ? `0${currentVal}` : currentVal;
+        
+        const wordIdx = Math.min(Math.floor((currentVal / 100) * preloaderWords.length), preloaderWords.length - 1);
+        
+        if (wordIdx !== lastWordIdx && preloaderWordEl) {
+          lastWordIdx = wordIdx;
+          const nextWord = preloaderWords[wordIdx];
+          
+          // Dynamic Slide & Fade shift animation for words
+          gsap.timeline()
+            .to(preloaderWordEl, {
+              y: -20,
+              opacity: 0,
+              duration: 0.18,
+              ease: "power2.in",
+              onComplete: () => {
+                preloaderWordEl.innerText = nextWord;
+                
+                // Apply branding custom styles (italic/gradient) to the final word 'editkaro.'
+                if (nextWord === 'editkaro.') {
+                  preloaderWordEl.classList.add('font-italic');
+                } else {
+                  preloaderWordEl.classList.remove('font-italic');
+                }
+                
+                gsap.set(preloaderWordEl, { y: 20 });
+              }
+            })
+            .to(preloaderWordEl, {
+              y: 0,
+              opacity: 1,
+              duration: 0.3,
+              ease: "power2.out"
+            });
+        }
+      },
+      onComplete: () => {
+        const curvePath = document.querySelector('.preloader-slider-svg path');
+        sessionStorage.setItem('editkaro_preloader_played', 'true');
+        
+        gsap.timeline()
+          .to(curvePath, {
+            attr: { d: "M0,0 C30,0 70,0 100,0 L100,100 L0,100 Z" },
+            duration: 0.6,
+            ease: "power2.inOut"
+          })
+          .to(".preloader", {
+            y: "-100%",
+            duration: 0.8,
+            ease: "power4.inOut",
+            onComplete: () => {
+              const preloaderEl = document.querySelector('.preloader');
+              if (preloaderEl) preloaderEl.style.display = 'none';
+              triggerHeroEntrance(false);
+            }
+          }, "-=0.2");
+      }
+    });
+  }
 
   // 4. Hero Entrance Animations (Character-Level stagger reveal)
-  function triggerHeroEntrance() {
+  function triggerHeroEntrance(isFast = false) {
+    const durationMultiplier = isFast ? 0.3 : 1.0;
+    const staggerTime = isFast ? 0.003 : 0.015;
+    
     // Stagger character fades and slides
     gsap.to(".reveal-char", {
       y: "0%",
-      duration: 1.0,
-      stagger: 0.015,
+      duration: 1.0 * durationMultiplier,
+      stagger: staggerTime,
       ease: "power4.out"
     });
 
     // Reveal subtext & primary CTA button
     gsap.fromTo([".hero-subtext", ".hero-cta-group"], 
-      { opacity: 0, y: 24 },
-      { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" },
-      "-=0.7"
+      { opacity: isFast ? 1 : 0, y: isFast ? 0 : 24 },
+      { opacity: 1, y: 0, duration: 1 * durationMultiplier, stagger: isFast ? 0 : 0.1, ease: "power3.out" }
     );
 
     // Zoom and settle hero video reel
     gsap.fromTo(".hero-reel-outer",
-      { scale: 0.82, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" },
-      "-=1.0"
+      { scale: isFast ? 1 : 0.82, opacity: isFast ? 1 : 0 },
+      { scale: 1, opacity: 1, duration: 1.6 * durationMultiplier, ease: "power4.out" }
     );
   }
 
