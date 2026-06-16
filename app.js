@@ -843,19 +843,16 @@ document.addEventListener('DOMContentLoaded', () => {
   async function submitFormData(payload) {
     if (FORM_CONFIG.GOOGLE_SHEETS_URL) {
       try {
-        const response = await fetch(FORM_CONFIG.GOOGLE_SHEETS_URL, {
+        await fetch(FORM_CONFIG.GOOGLE_SHEETS_URL, {
           method: 'POST',
-          mode: 'cors',
+          mode: 'no-cors', // Bypass CORS restrictions for Google Apps Script redirects
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'text/plain' // Simple request type prevents OPTIONS preflight blocking
           },
           body: JSON.stringify(payload)
         });
-        if (response.ok) {
-          const result = await response.json();
-          console.log('Synced with Google Sheet:', result);
-          return true;
-        }
+        console.log('Post request dispatched to Google Sheets.');
+        return true;
       } catch (err) {
         console.warn('Google Sheet Sync failed, falling back to Local Storage:', err);
       }
