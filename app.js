@@ -824,7 +824,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Configuration Config
   const FORM_CONFIG = {
-    GOOGLE_SHEETS_URL: '' // Paste your deployed Google Apps Script URL here
+    GOOGLE_SHEETS_URL: 'https://script.google.com/macros/s/AKfycby1c2xnNtDKVXI4CGnW2qXw4vRIvPRqq9C7w4mjkXa23b_-cSeDHs05h7cOJ9WXsWH_bg/exec' // Paste your deployed Google Apps Script URL here
   };
 
   // Helper function to send post request
