@@ -2522,4 +2522,232 @@ section {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+/* Active Nav highlight */
+.nav-item.active-nav {
+  color: hsl(var(--text-main)) !important;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Newsletter Section Styles */
+.section-newsletter {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 10;
+}
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+.newsletter-card-inner, .cta-direct-card-inner {
+  padding: 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.newsletter-eyebrow, .cta-eyebrow {
+  font-family: monospace;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: hsl(var(--accent-rose));
+  margin-bottom: 1.25rem;
+  display: block;
+}
+.cta-eyebrow {
+  color: hsl(var(--accent-indigo));
+}
+.newsletter-title, .cta-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: hsl(var(--text-main));
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.newsletter-desc, .cta-desc {
+  font-size: 0.95rem;
+  color: hsl(var(--text-muted));
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  font-weight: 300;
+}
+.newsletter-input-group {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+.newsletter-input-group input {
+  flex-grow: 1;
+  background: rgba(9, 13, 22, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 1.25rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+  height: 48px;
+}
+.newsletter-input-group input:focus {
+  outline: none;
+  border-color: hsl(var(--accent-rose));
+}
+
+/* Success Toast Modal */
+.success-toast {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.success-toast.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.success-toast-content {
+  width: 100%;
+  max-width: 520px;
+  margin: 1.5rem;
+  transform: scale(0.92);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.success-toast.active .success-toast-content {
+  transform: scale(1);
+}
+.success-toast-inner {
+  padding: 3rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.success-toast-icon {
+  font-size: 3.5rem;
+  color: hsl(var(--accent-rose));
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.3));
+}
+.success-toast-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+.success-toast-msg {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+.toast-preview-data {
+  background: rgba(9, 13, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+.toast-preview-data h4 {
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: hsl(var(--accent-indigo));
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 0.5rem;
+}
+.toast-preview-data p {
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+.toast-preview-data p strong {
+  color: hsl(var(--text-main));
+  font-weight: 500;
+}
+.toast-preview-data p span {
+  color: hsl(var(--text-main));
+  font-family: monospace;
+}
+.btn-toast-close {
+  width: 100%;
+}
+
+/* About Page Glass Cards styling */
+.about-glass-card {
+  transition: var(--transition-smooth);
+}
+.about-glass-card:hover {
+  transform: translateY(-4px);
+}
+.about-glass-card-inner {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Team Section & Cards styling */
+.team-card {
+  transition: var(--transition-smooth);
+}
+.team-card:hover {
+  transform: translateY(-6px);
+}
+.team-card-inner {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.team-avatar-wrap img {
+  transition: transform 0.5s ease;
+}
+.team-card:hover .team-avatar-wrap img {
+  transform: scale(1.08);
+}
+
+/* Global inputs active focus helper styling */
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid hsl(var(--accent-indigo)) !important;
+}
+
+@media (max-width: 768px) {
+  .newsletter-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .newsletter-card-inner, .cta-direct-card-inner {
+    padding: 2.5rem 1.75rem;
+  }
+  .newsletter-title, .cta-title {
+    font-size: 1.65rem;
+  }
+  .newsletter-input-group {
+    flex-direction: column;
+  }
+  .newsletter-input-group input {
+    width: 100%;
+  }
+}
+
+
 

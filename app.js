@@ -806,4 +806,182 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- UI/UX Pro Max: Form Submission & Google Sheets Integration Pipelines ---
+  
+  // Configuration Config
+  const FORM_CONFIG = {
+    GOOGLE_SHEETS_URL: '' // Paste your deployed Google Apps Script URL here
+  };
+
+  // Helper function to send post request
+  async function submitFormData(payload) {
+    if (FORM_CONFIG.GOOGLE_SHEETS_URL) {
+      try {
+        const response = await fetch(FORM_CONFIG.GOOGLE_SHEETS_URL, {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        if (response.ok) {
+          const result = await response.json();
+          console.log('Synced with Google Sheet:', result);
+          return true;
+        }
+      } catch (err) {
+        console.warn('Google Sheet Sync failed, falling back to Local Storage:', err);
+      }
+    }
+    return false; // indicates fallback was used
+  }
+
+  // 1. Email Collector Newsletter form
+  const newsletterForm = document.getElementById('newsletter-subscription-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const emailInput = document.getElementById('newsletter-email');
+      const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+      const btnText = submitBtn.querySelector('.btn-text');
+      
+      if (!emailInput || !submitBtn) return;
+      
+      const emailValue = emailInput.value.trim();
+      
+      // Disable input while submitting
+      emailInput.disabled = true;
+      submitBtn.style.pointerEvents = 'none';
+      if (btnText) btnText.textContent = 'Subscribing...';
+      
+      const payload = {
+        formType: 'newsletter',
+        email: emailValue
+      };
+      
+      // Attempt Google Sheet submission
+      const isSynced = await submitFormData(payload);
+      
+      // Store in LocalStorage as fallback/demo cache
+      let cachedEmails = JSON.parse(localStorage.getItem('editkaro_newsletter_emails')) || [];
+      cachedEmails.push({
+        email: emailValue,
+        timestamp: new Date().toISOString(),
+        synced: isSynced
+      });
+      localStorage.setItem('editkaro_newsletter_emails', JSON.stringify(cachedEmails));
+      
+      // Success micro-interaction animation
+      gsap.to(submitBtn, {
+        backgroundColor: 'hsl(var(--accent-indigo))',
+        duration: 0.4,
+        onComplete: () => {
+          if (btnText) btnText.textContent = 'Subscribed!';
+          emailInput.value = '';
+          emailInput.placeholder = 'THANK YOU FOR SUBSCRIBING!';
+          
+          // Reset button back to normal after 3 seconds
+          setTimeout(() => {
+            emailInput.disabled = false;
+            submitBtn.style.pointerEvents = 'auto';
+            submitBtn.style.backgroundColor = '';
+            if (btnText) btnText.textContent = 'Join Us';
+            emailInput.placeholder = 'Enter your email address';
+          }, 3000);
+        }
+      });
+    });
+  }
+
+  // 2. Project Intake form
+  const intakeForm = document.getElementById('project-intake');
+  const toastModal = document.getElementById('submission-toast');
+  const closeToastBtn = document.getElementById('close-toast-btn');
+  
+  if (intakeForm && toastModal) {
+    intakeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const firstName = document.getElementById('first-name').value.trim();
+      const lastName = document.getElementById('last-name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const categorySelect = document.getElementById('category');
+      const categoryText = categorySelect.options[categorySelect.selectedIndex].text;
+      const volume = document.getElementById('videos-volume').value;
+      const toneInput = document.getElementById('selected-tone').value;
+      const details = document.getElementById('details').value.trim();
+      const priceVal = document.getElementById('estimator-price-val').textContent;
+      
+      const submitBtn = intakeForm.querySelector('button[type="submit"]');
+      const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+      
+      if (submitBtn) {
+        submitBtn.style.pointerEvents = 'none';
+        if (btnText) btnText.textContent = 'Syncing...';
+      }
+      
+      const payload = {
+        formType: 'intake',
+        name: `${firstName} ${lastName}`,
+        email: email,
+        phone: phone,
+        category: categoryText,
+        volume: `${volume} Videos`,
+        style: toneInput.toUpperCase(),
+        details: details,
+        estimatedPrice: priceVal
+      };
+      
+      // Attempt Google Sheet submission
+      const isSynced = await submitFormData(payload);
+      
+      // Store in LocalStorage as fallback/demo cache
+      let cachedInquiries = JSON.parse(localStorage.getItem('editkaro_project_inquiries')) || [];
+      cachedInquiries.push({
+        ...payload,
+        timestamp: new Date().toISOString(),
+        synced: isSynced
+      });
+      localStorage.setItem('editkaro_project_inquiries', JSON.stringify(cachedInquiries));
+      
+      // Populate and trigger success toast preview
+      document.getElementById('toast-name').textContent = `${firstName} ${lastName}`;
+      document.getElementById('toast-email').textContent = email;
+      document.getElementById('toast-phone').textContent = phone;
+      document.getElementById('toast-volume').textContent = `${volume} Videos`;
+      document.getElementById('toast-tone').textContent = toneInput.toUpperCase();
+      document.getElementById('toast-quote').textContent = priceVal;
+      
+      // Add active state to slide in the modal
+      toastModal.classList.add('active');
+      toastModal.setAttribute('aria-hidden', 'false');
+      if (window.lenis) window.lenis.stop();
+      
+      // Reset form
+      intakeForm.reset();
+      if (submitBtn) {
+        submitBtn.style.pointerEvents = 'auto';
+        if (btnText) btnText.textContent = 'Submit Inquiry';
+      }
+      
+      // Trigger update to reset quote counter displays
+      const volumeSlider = document.getElementById('videos-volume');
+      if (volumeSlider) {
+        const event = new Event('input');
+        volumeSlider.dispatchEvent(event);
+      }
+    });
+  }
+  
+  if (closeToastBtn && toastModal) {
+    closeToastBtn.addEventListener('click', () => {
+      toastModal.classList.remove('active');
+      toastModal.setAttribute('aria-hidden', 'true');
+      if (window.lenis) window.lenis.start();
+    });
+  }
+
 });

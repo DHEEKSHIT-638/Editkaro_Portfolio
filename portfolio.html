@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Portfolio — editkaro.in</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore our commission archive of high-retention video stories. From cinematic documentaries and esports montages to DTC product ads." />
+  <meta property="og:title" content="Portfolio — editkaro.in" />
+  <meta property="og:description" content="Explore our commission archive of high-retention video stories. From cinematic documentaries and esports montages to DTC product ads." />
+  <meta property="og:image" content="https://picsum.photos/seed/editkaro-portfolio/1200/630" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Premium Fonts -->
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&f[]=satoshi@900,700,500,400,300&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <!-- Ambient Design Textures -->
+  <div class="film-grain"></div>
+  <div class="bg-grid-lines"></div>
+  <div class="bg-glow-orbs">
+    <div class="glow-orb orb-indigo"></div>
+    <div class="glow-orb orb-rose"></div>
+  </div>
+  <canvas id="bg-particle-canvas"></canvas>
+
+  <!-- Smooth Preloader -->
+  <div class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-word-container">
+        <span class="preloader-active-word">rhythm</span>
+      </div>
+      <div class="preloader-counter-wrap">
+        <span class="preloader-bracket">[</span>
+        <span class="counter-num">00</span>
+        <span class="preloader-percent">%</span>
+        <span class="preloader-bracket">]</span>
+      </div>
+    </div>
+    <div class="preloader-slider-svg">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 C30,100 70,100 100,0 L100,100 L0,100 Z" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor">
+    <span class="cursor-label">PLAY</span>
+  </div>
+
+  <!-- Floating Capsule Navigation -->
+  <header class="header">
+    <nav class="nav-capsule">
+      <a href="index.html" class="brand-logo">
+        editkaro<span class="brand-dot">.</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="portfolio.html" class="nav-item active-nav">Portfolio</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </div>
+
+      <div class="nav-cta-wrapper">
+        <a href="contact.html" class="btn-magnetic btn-primary">
+          <span class="btn-text">Let's Edit</span>
+          <span class="btn-icon">
+            <i class="ph ph-arrow-up-right"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="nav-hamburger" aria-label="Toggle Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Screen Menu Overlay -->
+  <div class="mobile-menu-overlay">
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="portfolio.html" class="mobile-nav-item">Portfolio</a>
+      <a href="about.html" class="mobile-nav-item">About</a>
+      <a href="contact.html" class="mobile-nav-item">Contact</a>
+      <a href="contact.html" class="btn-magnetic btn-primary mobile-cta">
+        <span class="btn-text">Start Project</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Wrap -->
+  <main class="main-content">
+
+    <!-- Portfolio Intro Section -->
+    <section class="section-portfolio-hero" style="padding-top: 8rem; padding-bottom: 2rem;">
+      <div class="section-container" style="text-align: center;">
+        <span class="hero-eyebrow" style="letter-spacing: 0.15em; font-family: monospace;">[ CREATIVE ARCHIVE ]</span>
+        <h1 class="section-title" style="margin-top: 1rem; font-size: clamp(2.5rem, 6vw, 4.5rem);">Selected Commissions</h1>
+        <p class="section-desc" style="max-width: 600px; margin: 1.5rem auto 0 auto;">A premium catalog of edits engineered for client growth, social retention, and cinematic authority.</p>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section class="section-portfolio-grid" style="padding-bottom: 8rem;">
+      <div class="section-container">
+        
+        <!-- Category Filters -->
+        <div class="portfolio-filters-wrapper" style="margin-bottom: 3rem;">
+          <div class="portfolio-filters">
+            <button class="filter-pill active btn-magnetic" data-filter="all">All Work</button>
+            <button class="filter-pill btn-magnetic" data-filter="short">Short Form</button>
+            <button class="filter-pill btn-magnetic" data-filter="long">Long Form</button>
+            <button class="filter-pill btn-magnetic" data-filter="gaming">Gaming Videos</button>
+            <button class="filter-pill btn-magnetic" data-filter="football">Football Edits</button>
+            <button class="filter-pill btn-magnetic" data-filter="ecommerce">eCommerce Ads</button>
+            <button class="filter-pill btn-magnetic" data-filter="docu">Documentary Style</button>
+            <button class="filter-pill btn-magnetic" data-filter="color">Color Grading</button>
+            <button class="filter-pill btn-magnetic" data-filter="anime">Anime Videos</button>
+            <button class="filter-pill btn-magnetic" data-filter="ads">Ads</button>
+          </div>
+        </div>
+
+        <!-- Gapless Bento Grid -->
+        <div class="bento-grid grid-flow-dense" id="portfolio-grid">
+          
+          <!-- Bento Item 1: Short Form (Vertical video, double row) -->
+          <div class="bento-card col-span-4 row-span-2 short" data-video="https://vjs.zencdn.net/v/oceans.mp4" id="work-1">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-short/600/800" alt="Short Form Reel" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <!-- Retention Analytics Sparkline Overlay -->
+                  <div class="retention-overlay">
+                    <div class="retention-badge"><i class="ph ph-trend-up"></i> 89% Retention</div>
+                    <svg viewBox="0 0 100 30" class="retention-sparkline">
+                      <path id="sparkline-path" d="M0,25 C15,8 20,4 35,4 C45,4 55,20 70,8 C80,0 85,2 100,2" fill="none" stroke="url(#retention-grad)" stroke-width="2"/>
+                      <circle class="sparkline-pulse-node" r="3" fill="hsl(var(--accent-rose))"></circle>
+                      <defs>
+                        <linearGradient id="retention-grad" x1="0" y1="0" x2="1" y2="0">
+                          <stop offset="0%" stop-color="hsl(var(--accent-rose))"/>
+                          <stop offset="100%" stop-color="hsl(var(--accent-indigo))"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Short Form</span>
+                  <h4 class="card-title">Retention Loop Hook</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 2: Long Form -->
+          <div class="bento-card col-span-8 row-span-1 long" data-video="https://www.w3schools.com/html/movie.mp4" id="work-2">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-long/800/450" alt="Long Form Documentary" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <div class="dialogue-overlay">
+                    <div class="dialogue-box">
+                      <i class="ph ph-quotes"></i>
+                      <span class="dialogue-text" id="work-2-dialogue">"In the heart of the wild..."</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Long Form</span>
+                  <h4 class="card-title">Creator Documentary Series</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 3: Gaming Videos -->
+          <div class="bento-card col-span-4 row-span-1 gaming" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4" id="work-3">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-gaming/600/400" alt="Esports Gaming Edit" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <div class="equalizer-overlay">
+                    <div class="equalizer-bars">
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Gaming Videos</span>
+                  <h4 class="card-title">Esports Montage Cut</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 4: Football Edits (Mapped to Oceans Cinematic Waves) -->
+          <div class="bento-card col-span-4 row-span-1 football" data-video="https://vjs.zencdn.net/v/oceans.mp4" id="work-4">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-football/600/400" alt="Football / Action Sports Cut" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <div class="speed-ramp-overlay">
+                    <span class="speed-ramp-badge"><i class="ph ph-gauge"></i> SPEED RAMP ACTIVE</span>
+                    <svg viewBox="0 0 100 30" class="speed-ramp-graph">
+                      <path d="M0,25 L30,25 C45,25 50,5 65,5 L100,5" fill="none" stroke="hsl(var(--accent-indigo))" stroke-width="2"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Football Edits</span>
+                  <h4 class="card-title">Cinematic Sports Reel</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 5: eCommerce Ads -->
+          <div class="bento-card col-span-4 row-span-2 ecommerce" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" id="work-5">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-ecommerce/600/800" alt="eCommerce Ad" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <div class="ecommerce-overlay">
+                    <div class="metric-badge"><i class="ph ph-shopping-cart-simple"></i> CTR +140%</div>
+                    <div class="hotspot-node" style="top: 35%; left: 45%;" data-tooltip="Clean Hook Zoom"></div>
+                    <div class="hotspot-node" style="top: 65%; left: 30%;" data-tooltip="Contrast boost LUT"></div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">eCommerce Ads</span>
+                  <h4 class="card-title">DTC Product Commercial</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 6: Documentary Style -->
+          <div class="bento-card col-span-8 row-span-1 docu" data-video="https://www.w3schools.com/html/movie.mp4" id="work-6">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-docu/800/450" alt="Documentary Style Edit" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <div class="speed-ramp-overlay">
+                    <span class="speed-ramp-badge"><i class="ph ph-trend-up"></i> NARRATIVE FLOW</span>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Documentary Style</span>
+                  <h4 class="card-title">Deep Dive Vox-style Edit</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 7: Color Grading (Split-screen video comparison) -->
+          <div class="bento-card col-span-4 row-span-1 color" data-video="https://vjs.zencdn.net/v/oceans.mp4" id="work-7">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/colorgradedcinema/600/400" alt="Color Grading commissions" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <!-- Color Grade Split Line HUD indicator -->
+                  <div style="position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: hsl(var(--accent-rose)); opacity: 0.7; pointer-events: none; box-shadow: 0 0 10px hsl(var(--accent-rose)); z-index: 4;"></div>
+                  <span class="speed-ramp-badge" style="position: absolute; bottom: 12px; left: 12px; font-size: 10px; background: rgba(0,0,0,0.6); z-index: 5;">LOG vs GRADED</span>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Color Grading</span>
+                  <h4 class="card-title">LOG Cinematic Grading Showcase</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 8: Anime Videos -->
+          <div class="bento-card col-span-8 row-span-1 anime" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4" id="work-8">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-anime/800/450" alt="Anime stylized AMV Edit" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <div class="equalizer-overlay">
+                    <div class="equalizer-bars" style="bottom: 20px;">
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                      <span class="eq-bar"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Anime Videos</span>
+                  <h4 class="card-title">Neon AMV Sequence</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 9: Ads -->
+          <div class="bento-card col-span-4 row-span-1 ads" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" id="work-9">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-ads/600/400" alt="Commercial Ad" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <div class="ecommerce-overlay">
+                    <div class="metric-badge" style="background: hsl(var(--accent-rose)); color: black; font-weight: bold;"><i class="ph ph-trend-up"></i> ROAS 4.8x</div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Ads</span>
+                  <h4 class="card-title">Commercial Brand Ad</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento Item 10: Short Form 2 (Vertical Mobile) -->
+          <div class="bento-card col-span-4 row-span-1 short" data-video="https://vjs.zencdn.net/v/oceans.mp4" id="work-10">
+            <div class="double-bezel-outer card-outer">
+              <div class="double-bezel-inner card-inner">
+                <div class="card-media">
+                  <video muted loop playsinline class="card-video-loop">
+                    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
+                  </video>
+                  <img src="https://picsum.photos/seed/editkaro-short2/600/400" alt="Short Form Reel" class="card-thumbnail" />
+                  <div class="card-glow"></div>
+                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
+                  <div class="ecommerce-overlay">
+                    <div class="metric-badge"><i class="ph ph-trend-up"></i> 1.2M+ Views</div>
+                  </div>
+                </div>
+                <div class="card-info">
+                  <span class="card-category">Short Form</span>
+                  <h4 class="card-title">Visual Trend Reel</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Fullscreen Video Lightbox Overlay -->
+  <div class="video-lightbox" aria-hidden="true" role="dialog">
+    <button class="lightbox-close" aria-label="Close Lightbox">
+      <i class="ph ph-x"></i>
+    </button>
+    <div class="lightbox-content">
+      <div class="double-bezel-outer lightbox-video-outer">
+        <div class="double-bezel-inner lightbox-video-inner">
+          <video class="lightbox-player" controls autoplay playsinline></video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Climax Visual Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-climax-statement">
+        <h2 class="climax-tagline">Let's make something people can't scroll past.</h2>
+        <div class="footer-logo-under">
+          editkaro<span class="brand-dot">.</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 editkaro.in. All rights reserved.</span>
+        
+        <div class="footer-socials">
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">LinkedIn</a>
+          <a href="#" class="social-link">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

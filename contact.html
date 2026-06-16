@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Contact Us — editkaro.in</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Intake form: Connect with our creative director, calculate your video editing project's estimated cost, and start your brand's scaling project." />
+  <meta property="og:title" content="Contact Us — editkaro.in" />
+  <meta property="og:description" content="Intake form: Connect with our creative director, calculate your video editing project's estimated cost, and start your brand's scaling project." />
+  <meta property="og:image" content="https://picsum.photos/seed/editkaro-contact/1200/630" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Premium Fonts -->
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&f[]=satoshi@900,700,500,400,300&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+  <!-- Ambient Design Textures -->
+  <div class="film-grain"></div>
+  <div class="bg-grid-lines"></div>
+  <div class="bg-glow-orbs">
+    <div class="glow-orb orb-indigo"></div>
+    <div class="glow-orb orb-rose"></div>
+  </div>
+  <canvas id="bg-particle-canvas"></canvas>
+
+  <!-- Smooth Preloader -->
+  <div class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-word-container">
+        <span class="preloader-active-word">rhythm</span>
+      </div>
+      <div class="preloader-counter-wrap">
+        <span class="preloader-bracket">[</span>
+        <span class="counter-num">00</span>
+        <span class="preloader-percent">%</span>
+        <span class="preloader-bracket">]</span>
+      </div>
+    </div>
+    <div class="preloader-slider-svg">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <path d="M0,0 C30,100 70,100 100,0 L100,100 L0,100 Z" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor">
+    <span class="cursor-label">PLAY</span>
+  </div>
+
+  <!-- Floating Capsule Navigation -->
+  <header class="header">
+    <nav class="nav-capsule">
+      <a href="index.html" class="brand-logo">
+        editkaro<span class="brand-dot">.</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="portfolio.html" class="nav-item">Portfolio</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="contact.html" class="nav-item active-nav">Contact</a>
+      </div>
+
+      <div class="nav-cta-wrapper">
+        <a href="contact.html" class="btn-magnetic btn-primary">
+          <span class="btn-text">Let's Edit</span>
+          <span class="btn-icon">
+            <i class="ph ph-arrow-up-right"></i>
+          </span>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <button class="nav-hamburger" aria-label="Toggle Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Screen Menu Overlay -->
+  <div class="mobile-menu-overlay">
+    <div class="mobile-menu-links">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="portfolio.html" class="mobile-nav-item">Portfolio</a>
+      <a href="about.html" class="mobile-nav-item">About</a>
+      <a href="contact.html" class="mobile-nav-item">Contact</a>
+      <a href="contact.html" class="btn-magnetic btn-primary mobile-cta">
+        <span class="btn-text">Start Project</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Wrap -->
+  <main class="main-content">
+
+    <!-- Contact Section -->
+    <section class="section-contact" style="padding-top: 8rem; padding-bottom: 8rem;">
+      <div class="section-container">
+        
+        <div class="contact-grid">
+          
+          <div class="contact-branding">
+            <span class="hero-eyebrow" style="letter-spacing: 0.15em; font-family: monospace;">[ PARTNER WITH US ]</span>
+            <h1 class="contact-headline" style="margin-top: 1rem; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1;">Ready to dominate the feed?</h1>
+            <p class="contact-sub" style="margin-top: 1rem; color: var(--text-muted);">Fill out the intake form to connect with our creative lead. We reply in 24 hours.</p>
+            
+            <div class="contact-details-list" style="margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem;">
+              <div class="contact-detail-item">
+                <span class="detail-label" style="font-family: monospace; font-size: 10px; color: hsl(var(--accent-rose)); letter-spacing: 0.1em;">OFFICE</span>
+                <span class="detail-val" style="display: block; font-size: 1.25rem; font-weight: 500; color: white; margin-top: 4px;">Mumbai, India</span>
+              </div>
+              <div class="contact-detail-item">
+                <span class="detail-label" style="font-family: monospace; font-size: 10px; color: hsl(var(--accent-indigo)); letter-spacing: 0.1em;">EMAIL</span>
+                <span class="detail-val" style="display: block; font-size: 1.25rem; font-weight: 500; color: white; margin-top: 4px;">hello@editkaro.in</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Intake Form -->
+          <div class="contact-form-wrapper double-bezel-outer">
+            <div class="contact-form-inner double-bezel-inner">
+              <form class="intake-form" id="project-intake">
+                
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label for="first-name">FIRST NAME</label>
+                    <input type="text" id="first-name" placeholder="John" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="last-name">LAST NAME</label>
+                    <input type="text" id="last-name" placeholder="Doe" required />
+                  </div>
+                </div>
+
+                <div class="form-group-row">
+                  <div class="form-group">
+                    <label for="email">EMAIL ADDRESS</label>
+                    <input type="email" id="email" placeholder="john@example.com" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">PHONE NUMBER</label>
+                    <input type="tel" id="phone" placeholder="+91 98765 43210" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="category">PRIMARY VIDEO CATEGORY</label>
+                  <select id="category" required>
+                    <option value="">Select a category</option>
+                    <option value="short">Short Form (Reels / Shorts)</option>
+                    <option value="long">Long Form YouTube content</option>
+                    <option value="gaming">Gaming videos</option>
+                    <option value="football">Football / Sports Edits</option>
+                    <option value="ecommerce">eCommerce / DTC Ads</option>
+                    <option value="docu">Documentary Style</option>
+                    <option value="color">Color Grading</option>
+                    <option value="anime">Anime Videos</option>
+                    <option value="ads">Ads / Commercial Promo</option>
+                  </select>
+                </div>
+
+                <!-- Interactive Scope Calculator -->
+                <div class="form-group">
+                  <label>ESTIMATED VOLUME (VIDEOS PER MONTH)</label>
+                  <div class="slider-val-container">
+                    <input type="range" id="videos-volume" min="2" max="30" value="8" class="form-slider" />
+                    <span class="slider-display-val" id="videos-volume-val">8 Videos</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>CHOOSE EDITING STYLE TONE</label>
+                  <div class="tone-cards-grid">
+                    <div class="tone-card active" data-tone="retention" data-multiplier="1">
+                      <div class="tone-card-glow"></div>
+                      <i class="ph ph-lightning"></i>
+                      <span>High Retention</span>
+                    </div>
+                    <div class="tone-card" data-tone="documentary" data-multiplier="1.3">
+                      <div class="tone-card-glow"></div>
+                      <i class="ph ph-film-strip"></i>
+                      <span>Documentary</span>
+                    </div>
+                    <div class="tone-card" data-tone="commercial" data-multiplier="1.6">
+                      <div class="tone-card-glow"></div>
+                      <i class="ph ph-sparkles"></i>
+                      <span>Commercial Ad</span>
+                    </div>
+                  </div>
+                  <input type="hidden" id="selected-tone" value="retention" />
+                </div>
+
+                <!-- Dynamic Estimated Quote Badge -->
+                <div class="form-quote-estimator">
+                  <span class="estimator-lbl">ESTIMATED VAL / MONTH</span>
+                  <span class="estimator-price" id="estimator-price-val">$1,800</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="details">TELL US ABOUT YOUR PROJECT</label>
+                  <textarea id="details" placeholder="Describe your editing needs, style reference, or folder volume..." rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-magnetic btn-primary btn-submit">
+                  <span class="btn-text">Submit Inquiry</span>
+                  <span class="btn-icon"><i class="ph ph-paper-plane-tilt"></i></span>
+                </button>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Success Toast Modal -->
+  <div class="success-toast" id="submission-toast" aria-hidden="true" role="alert">
+    <div class="success-toast-content double-bezel-outer">
+      <div class="success-toast-inner double-bezel-inner">
+        <i class="ph ph-check-circle-fill success-toast-icon"></i>
+        <h3 class="success-toast-title">Inquiry Submitted!</h3>
+        <p class="success-toast-msg">Your details have been successfully synced with our Google Sheet. Our creative director will connect with you within 24 hours.</p>
+        
+        <div class="toast-preview-data">
+          <h4>SUBMITTED INTAKE DATA:</h4>
+          <p><strong>Name:</strong> <span id="toast-name">John Doe</span></p>
+          <p><strong>Email:</strong> <span id="toast-email">john@example.com</span></p>
+          <p><strong>Phone:</strong> <span id="toast-phone">+91 98765 43210</span></p>
+          <p><strong>Monthly Volume:</strong> <span id="toast-volume">8 Videos</span></p>
+          <p><strong>Selected Tone:</strong> <span id="toast-tone">High Retention</span></p>
+          <p><strong>Est. Quote / Month:</strong> <span id="toast-quote">$1,800</span></p>
+        </div>
+        
+        <button class="btn-magnetic btn-primary btn-toast-close" id="close-toast-btn">
+          <span class="btn-text">Back to Site</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Climax Visual Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-climax-statement">
+        <h2 class="climax-tagline">Let's make something people can't scroll past.</h2>
+        <div class="footer-logo-under">
+          editkaro<span class="brand-dot">.</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 editkaro.in. All rights reserved.</span>
+        
+        <div class="footer-socials">
+          <a href="#" class="social-link">Twitter</a>
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">LinkedIn</a>
+          <a href="#" class="social-link">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

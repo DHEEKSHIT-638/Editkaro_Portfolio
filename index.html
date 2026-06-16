@@ -70,14 +70,14 @@
       </a>
       
       <div class="nav-links">
-        <a href="#work" class="nav-item">Work</a>
-        <a href="#grader" class="nav-item">Grader</a>
-        <a href="#workflow" class="nav-item">Workflow</a>
-        <a href="#contact" class="nav-item">Contact</a>
+        <a href="index.html" class="nav-item active-nav">Home</a>
+        <a href="portfolio.html" class="nav-item">Portfolio</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="contact.html" class="nav-item">Contact</a>
       </div>
 
       <div class="nav-cta-wrapper">
-        <a href="#contact" class="btn-magnetic btn-primary">
+        <a href="contact.html" class="btn-magnetic btn-primary">
           <span class="btn-text">Let's Edit</span>
           <span class="btn-icon">
             <i class="ph ph-arrow-up-right"></i>
@@ -96,11 +96,11 @@
   <!-- Mobile Screen Menu Overlay -->
   <div class="mobile-menu-overlay">
     <div class="mobile-menu-links">
-      <a href="#work" class="mobile-nav-item">Work</a>
-      <a href="#grader" class="mobile-nav-item">Grader</a>
-      <a href="#workflow" class="mobile-nav-item">Workflow</a>
-      <a href="#contact" class="mobile-nav-item">Contact</a>
-      <a href="#contact" class="btn-magnetic btn-primary mobile-cta">
+      <a href="index.html" class="mobile-nav-item">Home</a>
+      <a href="portfolio.html" class="mobile-nav-item">Portfolio</a>
+      <a href="about.html" class="mobile-nav-item">About</a>
+      <a href="contact.html" class="mobile-nav-item">Contact</a>
+      <a href="contact.html" class="btn-magnetic btn-primary mobile-cta">
         <span class="btn-text">Start Project</span>
       </a>
     </div>
@@ -128,7 +128,7 @@
           </p>
 
           <div class="hero-cta-group">
-            <a href="#contact" class="btn-magnetic btn-primary btn-large">
+            <a href="contact.html" class="btn-magnetic btn-primary btn-large">
               <span class="btn-text">Start A Project</span>
               <span class="btn-icon"><i class="ph ph-arrow-up-right"></i></span>
             </a>
@@ -224,23 +224,8 @@
           <p class="section-desc">A curated archive of high-retention edits categorized by platform format.</p>
         </div>
 
-        <!-- Category Filters -->
-        <div class="portfolio-filters-wrapper">
-          <div class="portfolio-filters">
-            <button class="filter-pill active btn-magnetic" data-filter="all">All Work</button>
-            <button class="filter-pill btn-magnetic" data-filter="short">Short-form</button>
-            <button class="filter-pill btn-magnetic" data-filter="long">Long-form</button>
-            <button class="filter-pill btn-magnetic" data-filter="gaming">Gaming</button>
-            <button class="filter-pill btn-magnetic" data-filter="football">Action Sports</button>
-            <button class="filter-pill btn-magnetic" data-filter="ecommerce">eCommerce Ads</button>
-            <button class="filter-pill btn-magnetic" data-filter="docu">Documentary</button>
-            <button class="filter-pill btn-magnetic" data-filter="anime">Anime</button>
-            <button class="filter-pill btn-magnetic" data-filter="ads">Ads</button>
-          </div>
-        </div>
-
-        <!-- Gapless Bento Grid -->
-        <div class="bento-grid grid-flow-dense" id="portfolio-grid">
+        <!-- Gapless Bento Grid Teaser -->
+        <div class="bento-grid grid-flow-dense" id="portfolio-grid" style="margin-bottom: 3rem;">
           
           <!-- Bento Item 1: Short-form (Vertical video, double row) -->
           <div class="bento-card col-span-4 row-span-2 short" data-video="https://vjs.zencdn.net/v/oceans.mp4" id="work-1">
@@ -337,34 +322,7 @@
             </div>
           </div>
 
-          <!-- Bento Item 4: Action Sports (Mapped to Oceans Cinematic Waves) -->
-          <div class="bento-card col-span-4 row-span-1 football" data-video="https://vjs.zencdn.net/v/oceans.mp4" id="work-4">
-            <div class="double-bezel-outer card-outer">
-              <div class="double-bezel-inner card-inner">
-                <div class="card-media">
-                  <video muted loop playsinline class="card-video-loop">
-                    <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4" />
-                  </video>
-                  <img src="https://picsum.photos/seed/editkaro-football/600/400" alt="Cinematic Surf Reel" class="card-thumbnail" />
-                  <div class="card-glow"></div>
-                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
-                  <!-- Speed Ramp Curve Overlay -->
-                  <div class="speed-ramp-overlay">
-                    <span class="speed-ramp-badge"><i class="ph ph-gauge"></i> SPEED RAMP ACTIVE</span>
-                    <svg viewBox="0 0 100 30" class="speed-ramp-graph">
-                      <path d="M0,25 L30,25 C45,25 50,5 65,5 L100,5" fill="none" stroke="hsl(var(--accent-indigo))" stroke-width="2"/>
-                    </svg>
-                  </div>
-                </div>
-                <div class="card-info">
-                  <span class="card-category">Action Sports</span>
-                  <h4 class="card-title">Cinematic Surf Reel</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bento Item 5: eCommerce Ads (Mapped to Flower Blooming Macro Commercial Look) -->
+          <!-- Bento Item 5: eCommerce Ads -->
           <div class="bento-card col-span-4 row-span-1 ecommerce" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" id="work-5">
             <div class="double-bezel-outer card-outer">
               <div class="double-bezel-inner card-inner">
@@ -390,66 +348,13 @@
             </div>
           </div>
 
-          <!-- Bento Item 6: Documentary (Mapped to Bear Catching Fish Wilderness wildlife docu look) -->
-          <div class="bento-card col-span-8 row-span-1 docu" data-video="https://www.w3schools.com/html/movie.mp4" id="work-6">
-            <div class="double-bezel-outer card-outer">
-              <div class="double-bezel-inner card-inner">
-                <div class="card-media">
-                  <video muted loop playsinline class="card-video-loop">
-                    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
-                  </video>
-                  <img src="https://picsum.photos/seed/editkaro-docu/800/450" alt="Vox Style Documentary" class="card-thumbnail" />
-                  <div class="card-glow"></div>
-                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
-                </div>
-                <div class="card-info">
-                  <span class="card-category">Documentary Style</span>
-                  <h4 class="card-title">Deep Dive Storytelling</h4>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
 
-          <!-- Bento Item 7: Anime (Mapped to Sintel CGI Action sequence) -->
-          <div class="bento-card col-span-8 row-span-1 anime" data-video="https://media.w3.org/2010/05/sintel/trailer.mp4" id="work-7">
-            <div class="double-bezel-outer card-outer">
-              <div class="double-bezel-inner card-inner">
-                <div class="card-media">
-                  <video muted loop playsinline class="card-video-loop">
-                    <source src="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4" />
-                  </video>
-                  <img src="https://picsum.photos/seed/editkaro-anime/800/450" alt="Anime stylized AMV Edit" class="card-thumbnail" />
-                  <div class="card-glow"></div>
-                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
-                </div>
-                <div class="card-info">
-                  <span class="card-category">Anime Videos</span>
-                  <h4 class="card-title">Neon AMV Sequence</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bento Item 8: Ads -->
-          <div class="bento-card col-span-4 row-span-1 ads" data-video="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" id="work-8">
-            <div class="double-bezel-outer card-outer">
-              <div class="double-bezel-inner card-inner">
-                <div class="card-media">
-                  <video muted loop playsinline class="card-video-loop">
-                    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
-                  </video>
-                  <img src="https://picsum.photos/seed/editkaro-ads/600/400" alt="Brand Commercial" class="card-thumbnail" />
-                  <div class="card-glow"></div>
-                  <div class="card-play-indicator"><i class="ph ph-play-fill"></i></div>
-                </div>
-                <div class="card-info">
-                  <span class="card-category">Ads</span>
-                  <h4 class="card-title">Visual Commerce Spec</h4>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div class="portfolio-archive-link-wrap" style="text-align: center; margin-top: 2rem;">
+          <a href="portfolio.html" class="btn-magnetic btn-primary btn-large">
+            <span class="btn-text">View Full Portfolio Archive</span>
+            <span class="btn-icon"><i class="ph ph-arrow-right"></i></span>
+          </a>
         </div>
 
       </div>
@@ -775,114 +680,46 @@
       </div>
     </section>
 
-    <!-- Contact & Footer (Action) -->
-    <section id="contact" class="section-contact">
+    <!-- Section Newsletter & Action -->
+    <section class="section-newsletter">
       <div class="section-container">
-        
-        <div class="contact-grid">
+        <div class="newsletter-grid">
           
-          <div class="contact-branding">
-            <h2 class="contact-headline">Ready to dominate the feed?</h2>
-            <p class="contact-sub">Fill out the intake form to connect with our creative lead. We reply in 24 hours.</p>
-            
-            <div class="contact-details-list">
-              <div class="contact-detail-item">
-                <span class="detail-label">OFFICE</span>
-                <span class="detail-val">Mumbai, India</span>
-              </div>
-              <div class="contact-detail-item">
-                <span class="detail-label">EMAIL</span>
-                <span class="detail-val">hello@editkaro.in</span>
-              </div>
+          <!-- Column 1: Newsletter Signup -->
+          <div class="newsletter-card double-bezel-outer">
+            <div class="newsletter-card-inner double-bezel-inner">
+              <span class="newsletter-eyebrow">[ STAY AHEAD OF THE ALGORITHM ]</span>
+              <h3 class="newsletter-title">Subscribe to Retention Secrets</h3>
+              <p class="newsletter-desc">Get weekly breakdowns of viral edits, pacing analysis, and free editing resources.</p>
+              
+              <form class="newsletter-form" id="newsletter-subscription-form">
+                <div class="newsletter-input-group">
+                  <input type="email" id="newsletter-email" placeholder="Enter your email address" required />
+                  <button type="submit" class="btn-magnetic btn-primary">
+                    <span class="btn-text">Join Us</span>
+                    <span class="btn-icon"><i class="ph ph-bell-simple"></i></span>
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
-
-          <!-- Contact Intake Form -->
-          <div class="contact-form-wrapper double-bezel-outer">
-            <div class="contact-form-inner double-bezel-inner">
-              <form class="intake-form" id="project-intake">
-                
-                <div class="form-group-row">
-                  <div class="form-group">
-                    <label for="first-name">FIRST NAME</label>
-                    <input type="text" id="first-name" placeholder="John" required />
-                  </div>
-                  <div class="form-group">
-                    <label for="last-name">LAST NAME</label>
-                    <input type="text" id="last-name" placeholder="Doe" required />
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="email">EMAIL ADDRESS</label>
-                  <input type="email" id="email" placeholder="john@example.com" required />
-                </div>
-
-                <div class="form-group">
-                  <label for="category">PRIMARY VIDEO CATEGORY</label>
-                  <select id="category" required>
-                    <option value="">Select a category</option>
-                    <option value="short">Short-form Reels / Shorts</option>
-                    <option value="long">Long-form YouTube content</option>
-                    <option value="gaming">Gaming videos</option>
-                    <option value="ads">Product Ads / eCommerce</option>
-                    <option value="other">Other visual asset</option>
-                  </select>
-                </div>
-
-                <!-- Interactive Scope Calculator -->
-                <div class="form-group">
-                  <label>ESTIMATED VOLUME (VIDEOS PER MONTH)</label>
-                  <div class="slider-val-container">
-                    <input type="range" id="videos-volume" min="2" max="30" value="8" class="form-slider" />
-                    <span class="slider-display-val" id="videos-volume-val">8 Videos</span>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label>CHOOSE EDITING STYLE TONE</label>
-                  <div class="tone-cards-grid">
-                    <div class="tone-card active" data-tone="retention" data-multiplier="1">
-                      <div class="tone-card-glow"></div>
-                      <i class="ph ph-lightning"></i>
-                      <span>High Retention</span>
-                    </div>
-                    <div class="tone-card" data-tone="documentary" data-multiplier="1.3">
-                      <div class="tone-card-glow"></div>
-                      <i class="ph ph-film-strip"></i>
-                      <span>Documentary</span>
-                    </div>
-                    <div class="tone-card" data-tone="commercial" data-multiplier="1.6">
-                      <div class="tone-card-glow"></div>
-                      <i class="ph ph-sparkles"></i>
-                      <span>Commercial Ad</span>
-                    </div>
-                  </div>
-                  <input type="hidden" id="selected-tone" value="retention" />
-                </div>
-
-                <!-- Dynamic Estimated Quote Badge -->
-                <div class="form-quote-estimator">
-                  <span class="estimator-lbl">ESTIMATED VAL / MONTH</span>
-                  <span class="estimator-price" id="estimator-price-val">$1,800</span>
-                </div>
-
-                <div class="form-group">
-                  <label for="details">TELL US ABOUT YOUR PROJECT</label>
-                  <textarea id="details" placeholder="Describe your editing needs, style reference, or folder volume..." rows="4" required></textarea>
-                </div>
-
-                <button type="submit" class="btn-magnetic btn-primary btn-submit">
-                  <span class="btn-text">Submit Inquiry</span>
-                  <span class="btn-icon"><i class="ph ph-paper-plane-tilt"></i></span>
-                </button>
-
-              </form>
+          
+          <!-- Column 2: Direct CTA to Contact -->
+          <div class="cta-direct-card double-bezel-outer">
+            <div class="cta-direct-card-inner double-bezel-inner">
+              <span class="cta-eyebrow">[ WORK WITH US ]</span>
+              <h3 class="cta-title">Ready to scale your visual authority?</h3>
+              <p class="cta-desc">Skip the wait. Tell us about your project volume, choose your editing tone, and get an instant quote estimate.</p>
+              <div class="cta-action-wrapper" style="margin-top: 1.5rem;">
+                <a href="contact.html" class="btn-magnetic btn-primary btn-large">
+                  <span class="btn-text">Start A Project</span>
+                  <span class="btn-icon"><i class="ph ph-arrow-up-right"></i></span>
+                </a>
+              </div>
             </div>
           </div>
 
         </div>
-
       </div>
     </section>
 
