@@ -1,8 +1,3 @@
-/* ----------------------------------------------------
-   editkaro.in Portfolio Interactivity & Motion Engine
-   Libraries: Lenis, GSAP, ScrollTrigger
-   ---------------------------------------------------- */
-
 document.addEventListener('DOMContentLoaded', () => {
   
   // 1. Initialize Lenis Smooth Scroll
